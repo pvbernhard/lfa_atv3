@@ -2,10 +2,7 @@ import streamlit as st
 from typing import Optional, Dict, Any
 
 
-class Estado:
-  def __init__(self, nome: str):
-    self.nome = nome
-  
+class Estado:  
   def configura(self, estados_possiveis: Dict[str, Any]) -> None:
     self.estados_possiveis = estados_possiveis
   
@@ -26,15 +23,15 @@ class MaquinaEstados:
       estado = estado.proximo(c)
       if estado is None:
         return False
-    if estado.nome == self.estado_final.nome:
+    if estado == self.estado_final:
       return True
     else:
       return False
 
 
-estado_0 = Estado('estado_0')
-estado_1 = Estado('estado_1')
-estado_2 = Estado('estado_2')
+estado_0 = Estado()
+estado_1 = Estado()
+estado_2 = Estado()
 
 estado_0.configura({'a': estado_0, 'b': estado_1})
 estado_1.configura({'b': estado_2})
