@@ -52,6 +52,7 @@ submit_button = st.button(label='Testar')
 if submit_button or palavra != palavra_anterior:
   palavra_anterior = palavra
   resultado = maquina_estados.ler(palavra)
+  st.markdown('## Resposta:')
   if resultado:
     st.markdown('aceita')
   else:
