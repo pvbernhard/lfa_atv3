@@ -42,20 +42,8 @@ estado_2.configura({'c': estado_1})
 
 maquina_estados = MaquinaEstados(estado_inicial=estado_0, estado_final=estado_2)
 
-while(True):
-  palavra = input('Digite uma palavra:')
-  resultado = maquina_estados.ler(palavra)
-  if resultado:
-    print('aceita')
-  else:
-    print('rejeita')
-  novamente = input('Novamente? [s ou n]')
-  if not novamente in ['s', 'sim', 'S', 'Sim', 'SIM']:
-    break
-  print()
-
-
 with st.form(key='form'):
+  st.image('imagem.png')
   st.markdown('# Digite uma palavra')
   palavra = st.text_input(label='ex.: aaaabb')
   submit_button = st.form_submit_button(label='Testar')
