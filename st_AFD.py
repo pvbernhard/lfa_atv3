@@ -44,16 +44,15 @@ maquina_estados = MaquinaEstados(estado_inicial=estado_0, estado_final=estado_2)
 
 palavra_anterior = ''
 
-with st.form(key='form'):
-  st.image('imagem.png')
-  st.markdown('# Digite uma palavra')
-  palavra = st.text_input(label='ex.: aaaabb')
-  submit_button = st.form_submit_button(label='Testar')
+st.image('imagem.png')
+st.markdown('# Digite uma palavra')
+palavra = st.text_input(label='ex.: aaaabb')
+submit_button = st.button(label='Testar')
 
-  if submit_button or palavra != palavra_anterior:
-    palavra_anterior = palavra
-    resultado = maquina_estados.ler(palavra)
-    if resultado:
-      st.markdown('aceita')
-    else:
-      st.markdown('rejeita')
+if submit_button or palavra != palavra_anterior:
+  palavra_anterior = palavra
+  resultado = maquina_estados.ler(palavra)
+  if resultado:
+    st.markdown('aceita')
+  else:
+    st.markdown('rejeita')
